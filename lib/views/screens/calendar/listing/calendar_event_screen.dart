@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
-import 'package:leadcapture/views/screens/calendar/form/event_view.dart';
+import 'package:crm/views/screens/calendar/form/event_view.dart';
 import '/constants/constants.dart';
 import '/views/views.dart';
 import '/models/models.dart';

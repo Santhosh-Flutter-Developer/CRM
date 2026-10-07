@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
-import 'package:leadcapture/models/src/attendance_model.dart';
-import 'package:leadcapture/models/src/employee_model.dart';
-import 'package:leadcapture/theme/theme.dart';
+import 'package:crm/models/src/attendance_model.dart';
+import 'package:crm/models/src/employee_model.dart';
+import 'package:crm/theme/theme.dart';
 
 class AttendanceExportService {
   static String _fmtTime(DateTime dt) => DateFormat('HH:mm').format(dt);

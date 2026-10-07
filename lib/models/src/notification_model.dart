@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:leadcapture/models/src/chat_model.dart';
+import 'package:crm/models/src/chat_model.dart';
 
 import '/constants/constants.dart';
 

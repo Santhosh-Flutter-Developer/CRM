@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:leadcapture/constants/src/enum.dart';
+import 'package:crm/constants/src/enum.dart';
 import '/models/models.dart';
 import '/services/services.dart';
 import '/theme/theme.dart';

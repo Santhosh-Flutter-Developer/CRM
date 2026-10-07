@@ -39,7 +39,7 @@ class _WindowsUpdateState extends State<WindowsUpdate> {
 
   void _init() async {
     _installedLocation =
-        "${await _getFolderPath()}/${_versionModel?.version ?? 'leadcapture'}.exe";
+        "${await _getFolderPath()}/${_versionModel?.version ?? 'crm'}.exe";
     _readyToInstall = await _checkFileExists();
     setState(() {});
   }
@@ -176,7 +176,7 @@ class _WindowsUpdateState extends State<WindowsUpdate> {
           .onDone(() async {
             await saveFileToDownloads(
               Uint8List.fromList(bytes),
-              fileName: "${_versionModel?.version ?? 'leadcapture'}.exe",
+              fileName: "${_versionModel?.version ?? 'crm'}.exe",
             );
             _isLoading = false;
             _readyToInstall = true;

@@ -1,7 +1,7 @@
 
 
-import 'package:leadcapture/constants/src/enum.dart';
-import 'package:leadcapture/utils/src/extensions.dart';
+import 'package:crm/constants/src/enum.dart';
+import 'package:crm/utils/src/extensions.dart';
 
 extension PermissionTypeExtension on PermissionType {
   String get label {

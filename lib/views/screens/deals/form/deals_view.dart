@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:mime/mime.dart';
-import 'package:leadcapture/theme/src/app_colors.dart';
+import 'package:crm/theme/src/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
 import '../../../../services/firebase/src/deal_service.dart';

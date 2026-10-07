@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dio/dio.dart';
-import 'package:leadcapture/models/src/download_model.dart';
+import 'package:crm/models/src/download_model.dart';
 import 'package:path/path.dart' as path;
 import '/services/services.dart' show ErrorService, Spdb;
 import '/theme/theme.dart';

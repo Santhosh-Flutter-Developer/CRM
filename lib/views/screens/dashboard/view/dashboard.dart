@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/gestures.dart';
 import 'package:intl/intl.dart';
-import 'package:leadcapture/constants/src/enum.dart';
+import 'package:crm/constants/src/enum.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '/models/models.dart';

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.srisoftwarez.leadcapture">
+    package="com.srisoftwarez.crm">
     <uses-permission
         android:name="android.permission.INTERNET"/>
     <uses-permission
@@ -24,7 +24,7 @@
     <uses-permission
         android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
-        android:label="LeadCapture"
+        android:label="CRM"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

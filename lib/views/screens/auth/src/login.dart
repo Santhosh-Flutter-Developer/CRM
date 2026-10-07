@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:leadcapture/theme/src/app_colors.dart';
-import 'package:leadcapture/views/screens/auth/src/company_registration.dart';
+import 'package:crm/theme/src/app_colors.dart';
+import 'package:crm/views/screens/auth/src/company_registration.dart';
 import '/constants/constants.dart';
 import '/models/models.dart';
 import '/services/services.dart';
@@ -308,7 +308,7 @@ class _LoginFormCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "Lead Capture CRM",
+                        "CRM",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.titleMedium?.copyWith(
@@ -590,7 +590,7 @@ class AuthBrandingPanel extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   Text(
-                    "Lead Capture CRM",
+                    "CRM",
                     style: theme.textTheme.headlineMedium?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -632,7 +632,7 @@ class AuthBrandingPanel extends StatelessWidget {
             left: 56,
             bottom: 28,
             child: Text(
-              "\u00A9 ${DateTime.now().year} Lead Capture CRM. All rights reserved.",
+              "\u00A9 ${DateTime.now().year} CRM. All rights reserved.",
               style: theme.textTheme.bodySmall?.copyWith(
                 color: Colors.white.withValues(alpha: 0.75),
               ),

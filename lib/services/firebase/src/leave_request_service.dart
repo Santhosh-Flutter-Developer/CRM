@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leadcapture/models/src/leave_request_model.dart';
+import 'package:crm/models/src/leave_request_model.dart';
 import '/constants/constants.dart';
 import '/models/models.dart';
 import '/services/services.dart';

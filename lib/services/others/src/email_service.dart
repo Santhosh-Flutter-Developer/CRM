@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '/constants/constants.dart';
 import '/services/services.dart';
 
 class EmailService {
@@ -13,15 +14,15 @@ class EmailService {
     try {
       var response = await http.post(
         Uri.parse(
-          "https://us-central1-leadcapture-79a43.cloudfunctions.net/sendEmail",
+          AppStrings.sendEmailUrl,
         ),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           "smtp_host": "smtp.gmail.com",
-          "smtp_user": "systemadmin@srisoftwarez.com",
-          "smtp_pass": "mxlfsavbqgrbhmrq",
-          "from": "systemadmin@srisoftwarez.com",
-          "from_name": "LeadcaptureCRM",
+          "smtp_user": AppStrings.smtpUser,
+          "smtp_pass": AppStrings.smtpPass,
+          "from": AppStrings.smtpUser,
+          "from_name": "CRM",
           "to": to.map((e) => e.trim()).toList().join(','),
           "to_name": toName.map((e) => e.trim()).toList().join(','),
           "reply_to": "systemadmin@srisoftwarez.com",

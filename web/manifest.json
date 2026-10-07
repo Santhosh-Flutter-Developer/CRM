@@ -1,6 +1,6 @@
 {
-    "name": "leadcapture",
-    "short_name": "leadcapture",
+    "name": "CRM",
+    "short_name": "CRM",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

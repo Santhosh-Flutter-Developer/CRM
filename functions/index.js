@@ -14,7 +14,8 @@ const { getMessaging } = require("firebase-admin/messaging");
 
 admin.initializeApp();
 
-const FIREBASE_API_KEY = "AIzaSyD1-qmYt3fwlA-TlHmxHOhd_DL3lmj5TF0";
+// Web API key of the NEW project (Project settings > General). Set via functions/.env: FIREBASE_API_KEY=...
+const FIREBASE_API_KEY = process.env.WEB_API_KEY;
 
 exports.sendEmail = functions.https.onRequest(async (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
@@ -37,7 +38,7 @@ exports.sendEmail = functions.https.onRequest(async (req, res) => {
         });
 
         await transporter.sendMail({
-            from: `"${from_name || "Leadcapture"}" <${from || smtp_user}>`,
+            from: `"${from_name || "CRM"}" <${from || smtp_user}>`,
             to: to,
             replyTo: from || smtp_user,
             subject: subject,

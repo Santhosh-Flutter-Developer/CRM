@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
-import 'package:leadcapture/views/screens/creations/employee/form/employee_upload.dart';
+import 'package:crm/views/screens/creations/employee/form/employee_upload.dart';
 import 'package:provider/provider.dart';
 import '../form/employee_create.dart';
 import '../form/employee_details.dart';

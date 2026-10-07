@@ -39,7 +39,7 @@ class DeviceInfo {
         platform = 'Web';
         try {
           fcmId = await FirebaseMessaging.instance.getToken(
-            vapidKey: 'BElo9iyDmRacZr_hHvqLsXhMjCdn4mE8t6XZve1RD6DlU8g5NUTV1Xl8UiiMXkRmBDklec0WQ8KxPfTAFNSBw5o',
+            vapidKey: 'BHA3T7l7ae3yOBKppniIH0mXIJEBZ59yYeIE6ftFxtyr_QSDH-Wbav83TU6P0LE2dkH3WUaYrpzVUb2Y6xvC_Ww',
           );
         } catch (e) {
           debugPrint('❌ FCM Token retrieval failed: $e');

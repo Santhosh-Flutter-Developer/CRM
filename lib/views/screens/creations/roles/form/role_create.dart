@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:leadcapture/views/screens/creations/roles/listing/role_permission_table.dart';
+import 'package:crm/views/screens/creations/roles/listing/role_permission_table.dart';
 import '/constants/constants.dart';
 import '/models/models.dart';
 import '/services/services.dart';

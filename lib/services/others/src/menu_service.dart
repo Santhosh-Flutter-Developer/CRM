@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:leadcapture/constants/src/enum.dart';
+import 'package:crm/constants/src/enum.dart';
 import '/services/services.dart';
 
 /// Menu item configuration with role-based access control
@@ -68,13 +68,6 @@ class MenuService {
         route: '/dashboard',
         requiredPermissions: ['Dashboard'],
       ),
-      MenuItem(
-        id: 'feed',
-        title: 'Feed',
-        icon: Iconsax.activity,
-        route: '/feed',
-      ),
-
       // Creation Section
       MenuItem(
         id: 'creation',
@@ -125,15 +118,6 @@ class MenuService {
             requiredPermissions: ['Employees'],
           ),
         ],
-      ),
-
-      // Chats
-      MenuItem(
-        id: 'chats',
-        title: 'Chats',
-        icon: Iconsax.message,
-        route: '/chats',
-        requiredPermissions: ['Chats'],
       ),
 
       // CRM Section
@@ -233,32 +217,6 @@ class MenuService {
         requiredPermissions: ['Calendar'],
       ),
 
-      // Projects
-      MenuItem(
-        id: 'projects',
-        title: 'Projects',
-        icon: Iconsax.airdrop,
-        route: '/projects',
-        requiredPermissions: ['Projects'],
-      ),
-
-      // Tasks
-      MenuItem(
-        id: 'tasks',
-        title: 'Tasks',
-        icon: Iconsax.check,
-        route: '/tasks',
-        requiredPermissions: ['Tasks'],
-      ),
-      // Customer Tickets
-      MenuItem(
-        id: 'tickets',
-        title: 'Tickets',
-        icon: Iconsax.ticket,
-        route: '/tickets',
-        requiredPermissions: ['Tickets'],
-      ),
-
       // Settings
       MenuItem(
         id: 'settings',
@@ -298,16 +256,6 @@ class MenuService {
         icon: Iconsax.document_download,
         route: '/downloads',
         requiredPermissions: ['Downloads'],
-      ),
-
-      // Developer Area
-      MenuItem(
-        id: 'developer_area',
-        title: 'Developer Area',
-        icon: Iconsax.code,
-        route: '/developer-area',
-        requiredPermissions: ['Developer Area'],
-        hideForAdmin: true,
       ),
 
       // Static items (always visible)
@@ -429,7 +377,6 @@ class MenuService {
       'Department',
       'Sub Department',
       'Employees',
-      'Chats',
       'Lead Category',
       'Lead Source',
       'Lead Priority',
@@ -440,11 +387,7 @@ class MenuService {
       'Company',
       'Contact',
       'Calendar',
-      'Projects',
-      'Tasks',
-      'Tickets',
       'Downloads',
-      'Developer Area',
       'Login Logs',
       'Activity Logs',
     ];

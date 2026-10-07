@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:leadcapture/utils/utils.dart' hide timeago;
-import 'package:leadcapture/views/views.dart';
-import 'package:leadcapture/models/models.dart';
-import 'package:leadcapture/constants/constants.dart';
-import 'package:leadcapture/services/services.dart';
-import 'package:leadcapture/theme/theme.dart';
+import 'package:crm/utils/utils.dart' hide timeago;
+import 'package:crm/views/views.dart';
+import 'package:crm/models/models.dart';
+import 'package:crm/constants/constants.dart';
+import 'package:crm/services/services.dart';
+import 'package:crm/theme/theme.dart';
 
 part 'comment_sheet.dart';
 

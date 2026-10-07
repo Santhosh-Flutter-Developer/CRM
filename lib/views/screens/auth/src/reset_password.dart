@@ -265,7 +265,7 @@ class _ResetPasswordFormCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "Lead Capture CRM",
+                        "CRM",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.titleMedium?.copyWith(
@@ -582,7 +582,7 @@ class _BrandingPanel extends StatelessWidget {
             left: 56,
             bottom: 28,
             child: Text(
-              "\u00A9 ${DateTime.now().year} Lead Capture CRM. All rights reserved.",
+              "\u00A9 ${DateTime.now().year} CRM. All rights reserved.",
               style: theme.textTheme.bodySmall?.copyWith(
                 color: Colors.white.withValues(alpha: 0.75),
               ),

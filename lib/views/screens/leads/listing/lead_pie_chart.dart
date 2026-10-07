@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:leadcapture/utils/src/platform.dart';
-import 'package:leadcapture/views/components/src/sheet.dart';
-import 'package:leadcapture/views/screens/leads/listing/lead_listing.dart';
-import 'package:leadcapture/views/ui/src/general_dialog.dart';
+import 'package:crm/utils/src/platform.dart';
+import 'package:crm/views/components/src/sheet.dart';
+import 'package:crm/views/screens/leads/listing/lead_listing.dart';
+import 'package:crm/views/ui/src/general_dialog.dart';
 import '/models/models.dart';
 
 class LeadsSourcePieChart extends StatefulWidget {

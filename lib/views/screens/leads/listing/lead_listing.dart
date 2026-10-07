@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:leadcapture/utils/src/download_io.dart'
-    if (dart.library.html) 'package:leadcapture/utils/src/download_web.dart'
+import 'package:crm/utils/src/download_io.dart'
+    if (dart.library.html) 'package:crm/utils/src/download_web.dart'
     show saveFileToDownloads;
-import 'package:leadcapture/views/screens/leads/listing/lead_upload.dart';
+import 'package:crm/views/screens/leads/listing/lead_upload.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 import '/services/services.dart';

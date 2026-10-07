@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:leadcapture/constants/src/enum.dart';
-import 'package:leadcapture/models/src/admin_model.dart';
+import 'package:crm/constants/src/enum.dart';
+import 'package:crm/models/src/admin_model.dart';
 
 import '/utils/utils.dart';
 import 'user_data_model.dart';

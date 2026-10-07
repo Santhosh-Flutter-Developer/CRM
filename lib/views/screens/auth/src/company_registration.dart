@@ -4,13 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:leadcapture/theme/src/app_colors.dart';
-import 'package:leadcapture/utils/src/assets.dart';
-import 'package:leadcapture/utils/src/validation.dart';
-import 'package:leadcapture/views/screens/auth/src/login.dart';
-import 'package:leadcapture/views/ui/src/flush_bar.dart';
-import 'package:leadcapture/views/ui/src/form_fields.dart';
-import 'package:leadcapture/views/ui/src/loading.dart';
+import 'package:crm/theme/src/app_colors.dart';
+import 'package:crm/utils/src/assets.dart';
+import 'package:crm/utils/src/validation.dart';
+import 'package:crm/views/screens/auth/src/login.dart';
+import 'package:crm/views/ui/src/flush_bar.dart';
+import 'package:crm/views/ui/src/form_fields.dart';
+import 'package:crm/views/ui/src/loading.dart';
 import '/services/services.dart';
 
 /// Shared brand gradient - kept identical to the one used on the login
@@ -354,7 +354,7 @@ class _RegistrationFormCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "Lead Capture CRM",
+                        "CRM",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.titleMedium?.copyWith(
@@ -1005,7 +1005,7 @@ class _BrandingPanel extends StatelessWidget {
             left: 56,
             bottom: 28,
             child: Text(
-              "\u00A9 ${DateTime.now().year} Lead Capture CRM. All rights reserved.",
+              "\u00A9 ${DateTime.now().year} CRM. All rights reserved.",
               style: theme.textTheme.bodySmall?.copyWith(
                 color: Colors.white.withValues(alpha: 0.75),
               ),

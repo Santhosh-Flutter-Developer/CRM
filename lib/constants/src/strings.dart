@@ -2,13 +2,22 @@ import '/theme/theme.dart';
 import '/models/models.dart';
 
 class AppStrings {
-  static const String updatePasswordUrl =
-      "https://us-central1-srisoftwarez-crm.cloudfunctions.net/updateUserPassword";
-  static const String deleteUserUrl =
-      "https://us-central1-srisoftwarez-crm.cloudfunctions.net/deleteUserByEmail";
+  // ── New Firebase project (set these after creating the project) ──────────
+  static const String firebaseProjectId = "crm-app-7a00e";
+  static const String functionsRegion = "us-central1";
+  static const String functionsBaseUrl =
+      "https://$functionsRegion-$firebaseProjectId.cloudfunctions.net";
+
+  static const String updatePasswordUrl = "$functionsBaseUrl/updateUserPassword";
+  static const String deleteUserUrl = "$functionsBaseUrl/deleteUserByEmail";
+  static const String sendEmailUrl = "$functionsBaseUrl/sendEmail";
+
+  // SMTP used by the sendEmail function (move to a secret store for production)
+  static const String smtpUser = "systemadmin@srisoftwarez.com";
+  static const String smtpPass = "mxlfsavbqgrbhmrq";
 
   static const String emptyProfilePhotoUrl =
-      "https://firebasestorage.googleapis.com/v0/b/srisoftwarez-crm.firebasestorage.app/o/static%2Fuser-profile-icon-vector-avatar-600nw-2558760599.png?alt=media&token=bce08459-aba7-4773-b7dc-580369414bf7";
+      "https://firebasestorage.googleapis.com/v0/b/$firebaseProjectId.firebasestorage.app/o/static%2Fuser-profile-icon.png?alt=media";
 
   static const String androidfacesdkLicence =
       "wWevuh/4kYz0O/XvtfJv0O0IvTJao7E4XWnKBLpQ32+bwH3GRmBGgY3RXHjQlukOsZiW/Y8uhGr8"

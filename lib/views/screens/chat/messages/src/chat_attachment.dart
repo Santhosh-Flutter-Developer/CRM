@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:leadcapture/utils/src/download.dart';
-import 'package:leadcapture/utils/src/route.dart' as navigate;
+import 'package:crm/utils/src/download.dart';
+import 'package:crm/utils/src/route.dart' as navigate;
 import 'package:path/path.dart' as path;
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';

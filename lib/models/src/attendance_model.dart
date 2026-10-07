@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:leadcapture/constants/src/enum.dart';
-import 'package:leadcapture/models/src/workpermission_model.dart';
-import 'package:leadcapture/models/src/worktime_model.dart';
+import 'package:crm/constants/src/enum.dart';
+import 'package:crm/models/src/workpermission_model.dart';
+import 'package:crm/models/src/worktime_model.dart';
 
 class AttendanceModel {
   String employeeId;

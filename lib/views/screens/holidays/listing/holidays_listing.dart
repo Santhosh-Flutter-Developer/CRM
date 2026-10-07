@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:leadcapture/utils/src/platform.dart';
+import 'package:crm/utils/src/platform.dart';
 import '/models/models.dart';
 import '/services/services.dart';
 import '/views/views.dart';

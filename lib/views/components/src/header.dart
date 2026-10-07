@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
-import 'package:leadcapture/constants/src/enum.dart';
+import 'package:crm/constants/src/enum.dart';
 import '/models/models.dart';
 import '/services/services.dart';
 import '/views/views.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:leadcapture/models/src/user_data_model.dart';
+import 'package:crm/models/src/user_data_model.dart';
 
 DateTime? parseDate(dynamic value) {
   if (value == null) return null;

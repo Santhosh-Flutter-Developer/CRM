@@ -21,8 +21,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:leadcapture/firebase_options.dart';
-import 'package:leadcapture/views/screens/calendar/form/event_view.dart';
+import 'package:crm/firebase_options.dart';
+import 'package:crm/views/screens/calendar/form/event_view.dart';
 import '/constants/constants.dart';
 import '/models/models.dart';
 import '/services/services.dart';
@@ -38,7 +38,7 @@ import 'notification_service_io.dart'
 // VAPID key — replace with your actual key from Firebase Console.
 // ─────────────────────────────────────────────────────────────────────────────
 const String kVapidKey =
-    'BElo9iyDmRacZr_hHvqLsXhMjCdn4mE8t6XZve1RD6DlU8g5NUTV1Xl8UiiMXkRmBDklec0WQ8KxPfTAFNSBw5o';
+    'BHA3T7l7ae3yOBKppniIH0mXIJEBZ59yYeIE6ftFxtyr_QSDH-Wbav83TU6P0LE2dkH3WUaYrpzVUb2Y6xvC_Ww';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {

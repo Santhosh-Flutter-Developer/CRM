@@ -11,7 +11,7 @@
 // because it is only called inside !kIsWeb branch.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:leadcapture/views/components/src/show_dialog.dart';
+import 'package:crm/views/components/src/show_dialog.dart';
 import 'package:provider/provider.dart';
 // import '../../utils/src/tray_stub.dart';
 import '/views/views.dart';
@@ -99,7 +99,7 @@ class _AppState extends State<App> {
             navigatorKey: navigatorKey,
             scaffoldMessengerKey: messengerKey,
             debugShowCheckedModeBanner: false,
-            title: "Lead Capture",
+            title: "CRM",
             theme: lightTheme,
             darkTheme: darkTheme,
             themeMode: themeProvider.themeMode,
