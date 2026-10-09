@@ -129,11 +129,9 @@ class _DashboardState extends State<Dashboard>
       'Dashboard',
       'Leads',
       'Deals',
-      'Tasks',
       'Employees',
       'Contact',
       'Company',
-      'Tickets',
     ];
     for (var page in pages) {
       _permissions[page] = await PermissionService.getPermissions(page);
@@ -240,10 +238,6 @@ class _DashboardState extends State<Dashboard>
                                   DealsTimelineChart(deals: data.allDeals),
                                   const SizedBox(height: 20),
                                 ],
-                                if (_permissions['Tasks']?.canView ?? false) ...[
-                                  TaskStatusPieChart(tasks: data.allTasks),
-                                  const SizedBox(height: 20),
-                                ],
                               ],
                               _buildActivitySection(
                                 // This one does not need permissions
@@ -313,11 +307,6 @@ class _DashboardState extends State<Dashboard>
                                       DealsTimelineChart(
                                         deals: data.allDeals,
                                       ),
-                                      const SizedBox(height: 20),
-                                    ],
-                                    if (_permissions['Tasks']?.canView ??
-                                        true) ...[
-                                      TaskStatusPieChart(tasks: data.allTasks),
                                       const SizedBox(height: 20),
                                     ],
                                   ],
@@ -1111,18 +1100,6 @@ Widget _buildKpiGrid(
   ];
 
   final userCards = <Widget>[
-    if (permissions['Tasks']?.canView ?? false)
-      SizedBox(
-        width: 180,
-        child: KpiCard(
-          title: "Assigned Tasks",
-          value: data.assignedTasks.toString(),
-          icon: Icons.task,
-          progress: _calculateProgress(data.assignedTasks, 20),
-          gradientColors: blueGradient,
-          onTap: () => _openSheet(context, const TasksListing()),
-        ),
-      ),
     if (permissions['Leads']?.canView ?? false)
       SizedBox(
         width: 180,
@@ -1279,10 +1256,6 @@ Widget _buildRightPanel(
 ) {
   final notifications = data.notifications;
   final upcomingTasks = data.upcomingTasks;
-  // Sort tickets by createdAt descending and take first 5
-  final tickets = List<CustomerTicketModel>.from(data.allTickets)
-    ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-  final recentTickets = tickets.take(5).toList();
 
   return LayoutBuilder(
     builder: (context, constraints) {
@@ -1328,41 +1301,15 @@ Widget _buildRightPanel(
           else
             ...notifications.map((msg) => NotificationTile(notification: msg)),
 
-          // 🎫 TICKETS — left out entirely when the viewer has no View
-          // access to Tickets.
-          if (permissions['Tickets']?.canView ?? false) ...[
+          // 📅 UPCOMING EVENTS (calendar)
+          ...[
             const SizedBox(height: 20),
-            _sectionTitle(context, "Recent Tickets"),
-            const SizedBox(height: 15),
-            if (recentTickets.isEmpty)
-              _emptyText(
-                context,
-                "No tickets yet.",
-                icon: Icons.confirmation_number_outlined,
-              )
-            else
-              ...recentTickets.map(
-                (ticket) => TicketTile(
-                  ticket: ticket,
-                  onTap: () =>
-                      _openSheet(context, TicketView(uid: ticket.uid!)),
-                ),
-              ),
-          ],
-
-          // 📌 TASKS — left out entirely when the viewer has no View
-          // access to Tasks.
-          if (permissions['Tasks']?.canView ?? false) ...[
-            const SizedBox(height: 20),
-            _sectionTitle(
-              context,
-              isAdmin ? "Upcoming Deadlines" : "Your Tasks",
-            ),
+            _sectionTitle(context, "Upcoming Events"),
             const SizedBox(height: 15),
             if (upcomingTasks.isEmpty)
               _emptyText(
                 context,
-                "No upcoming tasks.",
+                "No upcoming events.",
                 icon: Icons.event_available_rounded,
               )
             else
@@ -1475,20 +1422,6 @@ List<Widget> _adminActions(
       color: Colors.purple,
       onTap: () => _openSheet(context, const DealCreate()),
     ),
-  if (permissions['Tasks']?.canCreate ?? false)
-    QuickActionCard(
-      icon: Icons.check_circle_outline,
-      label: "Add Task",
-      color: Colors.orange,
-      onTap: () => _openSheet(context, const TaskCreate(employees: [])),
-    ),
-  if (permissions['Tickets']?.canCreate ?? false)
-    QuickActionCard(
-      icon: Icons.confirmation_number_outlined,
-      label: "Add Ticket",
-      color: Colors.teal,
-      onTap: () => _openSheet(context, const TicketCreate()),
-    ),
 
   // QuickActionCard(
   //   icon: Icons.access_time,
@@ -1536,29 +1469,6 @@ List<Widget> _userActions(
   //   enabled: permissions['Leads']?.canCreate ?? false,
   //   onTap: () => _openSheet(context, const LeadCreate()),
   // ),
-  if (permissions['Tasks']?.canView ?? false)
-    QuickActionCard(
-      icon: Icons.update,
-      label: "Tasks",
-      color: Colors.orange,
-      onTap: () => _openSheet(context, const TasksListing()),
-    ),
-  if (permissions['Tickets']?.canCreate ?? false)
-    QuickActionCard(
-      icon: Icons.confirmation_number_outlined,
-      label: "Add Ticket",
-      color: Colors.teal,
-      onTap: () => _openSheet(context, const TicketCreate()),
-    ),
-  QuickActionCard(
-    icon: Icons.chat_bubble_outline,
-    label: "Chat",
-    color: Colors.green,
-    onTap: () async {
-      var uid = await Spdb.getUid() ?? '';
-      _openSheet(context, ChatListing(currentUserUid: uid));
-    },
-  ),
 ];
 
 void _openSheet(BuildContext context, Widget widget) {
