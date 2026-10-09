@@ -22,7 +22,6 @@ class _DesktopMainScreenState extends State<DesktopMainScreen> {
   late Future _future;
   late String _currentUserUid;
   String? _companyLogo;
-  final List<UserDataModel> _users = [];
 
   final List<Map<String, dynamic>> items = [
     {"icon": Iconsax.message, "label": "Messenger"},
@@ -70,41 +69,8 @@ class _DesktopMainScreenState extends State<DesktopMainScreen> {
 
   Future<void> _init() async {
     try {
-      _users.clear();
       _currentUserUid = await Spdb.getUid() ?? '';
       _companyLogo = await Spdb.getCompanyLogo();
-
-      var employees = await EmployeeService.getAllEmployees(
-        excludeCurrentUser: true,
-      );
-      _users.addAll(
-        employees
-            .map(
-              (e) => UserDataModel(
-                name: e.name,
-                uid: e.uid ?? '',
-                userType: UserType.employee,
-                profilePic: e.profileImageUrl,
-              ),
-            )
-            .toList(),
-      );
-
-      var admins = await AdminService.getAllAdmins(excludeCurrentUser: true);
-      _users.addAll(
-        admins
-            .map(
-              (e) => UserDataModel(
-                name: e.name,
-                uid: e.uid ?? '',
-                userType: UserType.admin,
-                profilePic: e.profileImageUrl,
-              ),
-            )
-            .toList(),
-      );
-
-      _users.sort((a, b) => a.name.compareTo(b.name));
     } catch (e, st) {
       await ErrorService.recordError(e, st);
     }
@@ -308,7 +274,6 @@ class _DesktopMainScreenState extends State<DesktopMainScreen> {
                       ],
                     ),
                   ),
-                  if (_selectedMenu != 'Chats') _buildGlassNavigationRail(),
                 ],
               );
             },
@@ -317,154 +282,4 @@ class _DesktopMainScreenState extends State<DesktopMainScreen> {
       ),
     );
   }
-
-  Widget _buildGlassNavigationRail() {
-    return ValueListenableBuilder<bool>(
-      valueListenable: PanelSettingsNotifier.hidePanel,
-      builder: (context, hidePanel, _) {
-        if (hidePanel) {
-          return const SizedBox.shrink();
-        }
-        return Container(
-          width: 50, // Comfortable modern width
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-            border: Border(
-              left: BorderSide(
-                color: Colors.grey.withValues(alpha: 0.1),
-                width: 1,
-              ),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.02),
-                blurRadius: 20,
-                offset: const Offset(-5, 0),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              // User count badge / Action
-              _buildRailTopAction(),
-              const SizedBox(height: 12),
-              const Divider(indent: 16, endIndent: 16, thickness: 0.5),
-              const SizedBox(height: 12),
-              Expanded(
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(
-                    context,
-                  ).copyWith(scrollbars: false),
-                  child: ListView.separated(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    itemCount: _users.length,
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 8),
-                    itemBuilder: (context, index) {
-                      final userData = _users[index];
-
-                      return StreamBuilder<UserStatusModel?>(
-                        stream: UserStatusService.streamStatus(userData.uid),
-                        builder: (context, snapshot) {
-                          return _buildRailAvatar(userData, snapshot.data);
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ),
-              // _buildRailBottomActions(),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildRailTopAction() {
-    return Tooltip(
-      message: "Direct Messages",
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: const Color(0xFF2563EB).withValues(alpha: 0.1),
-          shape: BoxShape.circle,
-        ),
-        child: const Icon(
-          Iconsax.messages_1,
-          color: Color(0xFF2563EB),
-          size: 20,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRailAvatar(UserDataModel userData, UserStatusModel? status) {
-    final bool isOnline = status?.isOnline == true;
-    return Center(
-      child: Stack(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.transparent, width: 2),
-            ),
-            child: UserAvatar(userData: userData, size: 36),
-          ),
-          // Online Indicator
-          if (isOnline)
-            Positioned(
-              bottom: 2,
-              right: 2,
-              child: Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 2),
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-
-  // Widget _buildRailBottomActions() {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(bottom: 24, top: 12),
-  //     child: Column(
-  //       children: [
-  //         const Divider(indent: 16, endIndent: 16, thickness: 0.5),
-  //         const SizedBox(height: 12),
-  //         _buildRailItem(
-  //           icon: Iconsax.setting_2,
-  //           label: 'Panel Settings',
-  //           onTap: () => showPanelSettingsGeneralDialog(context),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-  // Widget _buildRailItem({
-  //   required IconData icon,
-  //   required String label,
-  //   required VoidCallback onTap,
-  // }) {
-  //   return Tooltip(
-  //     message: label,
-  //     child: InkWell(
-  //       onTap: onTap,
-  //       borderRadius: BorderRadius.circular(12),
-  //       child: Container(
-  //         padding: const EdgeInsets.all(10),
-  //         child: Icon(icon, color: const Color(0xFF64748B), size: 22),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

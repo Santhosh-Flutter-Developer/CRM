@@ -205,21 +205,6 @@ class _SettingsListingState extends State<SettingsListing> {
                     UpdateSettingsEvent("inAppNotification", val),
                   ),
                 ),
-                ValueListenableBuilder<bool>(
-                  valueListenable: PanelSettingsNotifier.hidePanel,
-                  builder: (context, hidePanel, _) {
-                    return _buildSwitchTile(
-                      icon: hidePanel ? Iconsax.lamp_slash : Iconsax.lamp_on,
-                      iconColor: Colors.purple,
-                      title: "Hide Chat Panel",
-                      subtitle: "Enable to hide the side panel",
-                      value: hidePanel,
-                      onChanged: (val) async {
-                        await Spdb.savePanelSettings(val);
-                      },
-                    );
-                  },
-                ),
               ],
             );
 

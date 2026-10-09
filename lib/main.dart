@@ -92,7 +92,6 @@ void main() async {
   await AppPackageInfo.init();
   await CacheService().init();
   await VersionService.init();
-  await Spdb.loadPanelSettings();
   await Spdb.loadPayrollSettings();
 
   // Register lifecycle observer only on native (web doesn't need it and

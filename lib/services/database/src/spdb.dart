@@ -295,23 +295,6 @@ class Spdb {
     return prefs.getString('settingsDocId');
   }
 
-  static Future<void> savePanelSettings(bool value) async {
-    final prefs = await _connect();
-    await prefs.setBool('panelSettings', value);
-    PanelSettingsNotifier.hidePanel.value = value;
-  }
-
-  static Future<bool?> getPanelSettings() async {
-    final prefs = await _connect();
-    return prefs.getBool('panelSettings');
-  }
-
-  static Future<void> loadPanelSettings() async {
-    final prefs = await _connect();
-    final value = prefs.getBool('panelSettings') ?? false;
-    PanelSettingsNotifier.hidePanel.value = value;
-  }
-
   static Future<void> savePayrollSettings(bool value) async {
     final prefs = await _connect();
     await prefs.setBool('payrollEnabled', value);
@@ -330,10 +313,6 @@ class Spdb {
 
     AppSettingsNotifier.payrollEnabled.value = value;
   }
-}
-
-class PanelSettingsNotifier {
-  static final ValueNotifier<bool> hidePanel = ValueNotifier<bool>(false);
 }
 
 class AppSettingsNotifier {
